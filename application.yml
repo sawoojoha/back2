@@ -1,0 +1,44 @@
+server:
+  error:
+    path: /error
+  port: 8123
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  cloud:
+    gcp:
+      storage:
+        credentials:
+          location: classpath:cogent-coyote-417714-9122d63aa011.json
+        project-id: cogent-coyote-417714
+        bucket: coup-bucket
+
+
+
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+  datasource:
+    url: jdbc:mysql://34.64.104.140:3306/mytube?serverTimezone=UTC
+    username: root
+    password: '0000'
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
